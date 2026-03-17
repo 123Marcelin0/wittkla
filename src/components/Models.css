@@ -1,0 +1,247 @@
+/* Models.css */
+
+.system-page {
+    background-color: #fcfcfc;
+    min-height: 100vh;
+    padding-bottom: 5rem;
+    color: #333;
+}
+
+/* 1. Concept Section */
+.concept-section {
+    padding: 15vh 5vw 5vh 5vw;
+    text-align: center;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.concept-title {
+    font-size: clamp(3rem, 6vw, 6rem);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: #000;
+    margin-bottom: 2rem;
+}
+
+.concept-subtitle {
+    font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #666;
+    font-weight: 300;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-top: 6rem;
+    text-align: left;
+}
+
+.feature-card {
+    padding: 2rem;
+    border-top: 1px solid #eee;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    margin-bottom: 1.5rem;
+    color: #00AEEF;
+}
+
+.feature-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.feature-desc {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #777;
+}
+
+/* 2. Selector */
+.selector-section {
+    position: sticky;
+    top: 80px;
+    /* Adjust based on header height */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 50;
+    padding: 1.5rem 5vw;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.selector-nav {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    scrollbar-width: none;
+}
+
+.selector-nav::-webkit-scrollbar {
+    display: none;
+}
+
+.model-btn {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: transparent;
+    color: #555;
+    outline: none;
+}
+
+.model-btn:hover {
+    border-color: #000;
+    color: #000;
+}
+
+.model-btn.active {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 3. Detail View */
+.detail-view {
+    padding: 5vh 5vw;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5vw;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.visual-container {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    height: fit-content;
+}
+
+.main-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.model-name {
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.model-sub {
+    font-size: 1.25rem;
+    color: #888;
+    margin-bottom: 2rem;
+    font-weight: 400;
+    display: block;
+}
+
+.model-desc {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 3rem;
+    max-width: 600px;
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.spec-item h4 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+}
+
+.spec-item p {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #000;
+}
+
+.key-features-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+    color: #333;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .detail-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .selector-section {
+        top: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .concept-title {
+        font-size: 2.5rem;
+    }
+
+    .specs-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .selector-nav {
+        padding-bottom: 1rem;
+    }
+}

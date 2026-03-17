@@ -1,234 +1,425 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Check } from 'lucide-react';
-import { MagneticButton } from './MagneticButton';
+import { useTranslation } from 'react-i18next';
+import './Models.css';
 
-const expandedModels = [
-    {
-        id: 'V1 MAXI',
-        for: 'Fiat Ducato, Citroën Jumper, Peugeot Boxer, Opel Movano',
-        desc: 'Der Bestseller seit 2009. Maximale Raumnutzung für die großen Transporter. Entwickelt für Spedition, Hobby und Motorsport.',
-        img: 'https://images.unsplash.com/photo-1520038410233-7141be7e6f97?q=80&w=2674&auto=format&fit=crop', // Interior van mood
-        details: [
-            'Optimiert für maximale Breite im Ducato/Jumper Chassis.',
-            'Extrem robustes Titan-Gelenk für täglichen Einsatz.',
-            'Inklusive Verdunkelung und Belüftungssystem.'
-        ],
-        technical: [
-            'Gewicht: ca. 25kg',
-            'Material: Leichtbau-Composite & Alu',
-            'Montagezeit: ca. 3 Std.'
-        ]
-    },
-    {
-        id: 'V8 ULTRA',
-        for: 'Mercedes Sprinter',
-        desc: 'Das Flaggschiff für den Sprinter (ab 2006). Kompromissloser Schlafkomfort mit maximaler Raumausnutzung.',
-        img: 'https://images.unsplash.com/photo-1694073383021-e40348737c54?q=80&w=2671&auto=format&fit=crop', // Sprinter mood
-        details: [
-            'Perfekte Anpassung an die Sprinter-Seitenwandkontur.',
-            'High-End Matratze mit Memory-Effect.',
-            'Optionales Isolationspaket für Wintereinsatz.'
-        ],
-        technical: [
-            'Gewicht: ca. 22kg',
-            'Kompatibilität: H2/H3 Dach',
-            'Made in Germany'
-        ]
-    },
-    {
-        id: 'V4 MASTER',
-        for: 'Renault Master, Nissan NV400, Opel Movano (bis 2021)',
-        desc: 'Perfekte Integration in die Master-Klasse. Robust und langlebig für den harten Arbeitsalltag.',
-        img: 'https://images.unsplash.com/photo-1605218427306-633ba87c9408?q=80&w=2670&auto=format&fit=crop',
-        details: [
-            'Nahtlose Integration ohne Raumverlust.',
-            'Hohe Stabilität auch bei dynamischer Fahrt.',
-            'Strapazierfähige Stoffbezüge, leicht zu reinigen.'
-        ],
-        technical: [
-            'Gewicht: ca. 24kg',
-            'Belastbarkeit: bis 120kg',
-            'Zertifizierte Materialien'
-        ]
-    },
-    {
-        id: 'V5 TRANSIT',
-        for: 'Ford Transit',
-        desc: 'Maßgeschneidert für den Ford Transit. Ergonomie trifft Design für erholsamen Schlaf.',
-        img: 'https://images.unsplash.com/photo-1517154421773-0529f29ea451?q=80&w=2670&auto=format&fit=crop', // Cozy interior
-        details: [
-            'Spezielle Geometrie für die Transit-Karosserie.',
-            'Schneller Auf- und Abbau in Sekunden.',
-            'Integrierte Staufächer für Wertsachen.'
-        ],
-        technical: [
-            'Gewicht: ca. 23kg',
-            'Farbe: Anthrazit / Grau',
-            'Garantie: 2 Jahre'
-        ]
-    },
-    {
-        id: 'V6 DAILY',
-        for: 'Iveco Daily',
-        desc: 'Raumwunder für den Daily. Komfort wie zuhause, auch auf der Baustelle.',
-        img: 'https://images.unsplash.com/photo-1469796466635-c74338473877?q=80&w=2669&auto=format&fit=crop',
-        details: [
-            'Großzügige Liegefläche auch für große Personen.',
-            'Premium Materialien für lange Lebensdauer.',
-            'Einfache Nachrüstung möglich.'
-        ],
-        technical: [
-            'Für Iveco Daily ab 2014',
-            'Maximale Kopffreiheit',
-            'Verstärkter Rahmen'
-        ]
-    },
-    {
-        id: 'V7 TGE/CRAFTER',
-        for: 'MAN TGE & VW Crafter',
-        desc: 'Business-Class für TGE und Crafter. Präzision trifft auf Volkswagen-Qualität.',
-        img: 'https://images.unsplash.com/photo-1510662145379-13537db782dc?q=80&w=2576&auto=format&fit=crop',
-        details: [
-            'Exakt auf die Maße des Crafter/TGE abgestimmt.',
-            'Hochwertige Haptik, passend zum Fahrzeuginterieur.',
-            'Dämpfungssystem für vibrationsfreien Schlaf.'
-        ],
-        technical: [
-            'Für Modelle ab 2017',
-            'Gewichtsoptimiert',
-            'ISO-zertifizierte Fertigung'
-        ]
-    },
-];
-
+// System Features Data
 export const Models: React.FC = () => {
-    const [selected, setSelected] = useState<string | null>(null);
+    const { t } = useTranslation();
+
+    const systemFeatures = [
+        {
+            title: t('model_feat_1_title'),
+            desc: t('model_feat_1_desc'),
+            icon: "M13 10V3L4 14h7v7l9-11h-7z"
+        },
+        {
+            title: t('model_feat_2_title'),
+            desc: t('model_feat_2_desc'),
+            icon: "M12 2v20M2 12h20"
+        },
+        {
+            title: t('model_feat_3_title'),
+            desc: t('model_feat_3_desc'),
+            icon: "M20.2 7.8l-7.7 7.7-4-4-5.7 5.7"
+        },
+        {
+            title: t('model_feat_4_title'),
+            desc: t('model_feat_4_desc'),
+            icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+        }
+    ];
+
+    const expandedModels = [
+        {
+            id: 'V8 ULTRA',
+            for: 'Mercedes Sprinter',
+            desc: t('model_v8_desc'),
+            images: [
+                '/V8 Website_Mercedes Benz/20220619_134121.jpg',
+                '/V8 Website_Mercedes Benz/20211218_130152_HDR.jpg',
+                '/V8 Website_Mercedes Benz/20221209_143029.jpg',
+                '/V8 Website_Mercedes Benz/20230114_120128.jpg',
+                '/V8 Website_Mercedes Benz/MB Sprinter zugeklappt.jpg'
+            ],
+            specs: {
+                weight: '24 kg',
+                load: '170 kg',
+                install: t('model_v8_install'),
+                compatibility: t('model_v8_compat'),
+                height: '90 cm',
+                clearance: '102 cm',
+                bed: '190 × 95 cm',
+                mattress: '167 × 86 cm'
+            },
+            features: [
+                t('model_v8_f1'),
+                t('model_v8_f2'),
+                t('model_v8_f3'),
+                t('model_v8_f4'),
+                t('model_v8_f5')
+            ]
+        },
+        {
+            id: 'V7 PROFI',
+            for: 'MAN TGE / VW Crafter',
+            desc: t('model_v7_desc'),
+            images: [
+                '/V7 Website_Volkswagen,MAN/20220611_130115.jpg',
+                '/V7 Website_Volkswagen,MAN/20211216_151229.jpg',
+                '/V7 Website_Volkswagen,MAN/20211216_151627.jpg',
+                '/V7 Website_Volkswagen,MAN/DSC05156.JPG',
+                '/V7 Website_Volkswagen,MAN/DSC05211.JPG'
+            ],
+            specs: {
+                weight: '24 kg',
+                load: '170 kg',
+                install: t('model_v7_install'),
+                compatibility: t('model_v7_compat'),
+                height: '90 cm',
+                clearance: '102 cm',
+                bed: '190 × 95 cm',
+                mattress: '167 × 86 cm'
+            },
+            features: [
+                t('model_v7_f1'),
+                t('model_v7_f2'),
+                t('model_v7_f3'),
+                t('model_v7_f4')
+            ]
+        },
+        {
+            id: 'V1 MAXI',
+            for: 'Fiat Ducato / Jumper',
+            desc: t('model_v1_desc'),
+            images: [
+                '/V1 Website_Fiat,Citroen,Peugeot,Opel/20201221_103500.jpg',
+                '/V1 Website_Fiat,Citroen,Peugeot,Opel/DSC03541.JPG',
+                '/V1 Website_Fiat,Citroen,Peugeot,Opel/20190722_113028.jpg',
+                '/V1 Website_Fiat,Citroen,Peugeot,Opel/20250320_112744.jpg',
+                '/V1 Website_Fiat,Citroen,Peugeot,Opel/20180618_111955.jpg'
+            ],
+            specs: {
+                weight: '22 kg',
+                load: '180 kg',
+                install: t('model_v1_install'),
+                compatibility: t('model_v1_compat'),
+                height: '60–90 cm',
+                clearance: '110 cm',
+                bed: '200 × 85 cm',
+                mattress: '180 × 75 cm'
+            },
+            features: [
+                t('model_v1_f1'),
+                t('model_v1_f2'),
+                t('model_v1_f3'),
+                t('model_v1_f4')
+            ]
+        },
+        {
+            id: 'V5 TRANSIT',
+            for: 'Ford Transit',
+            desc: t('model_v5_desc'),
+            images: [
+                '/V5 Website_Ford/20190512_170902.jpg',
+                '/V5 Website_Ford/20190512_171019.jpg',
+                '/V5 Website_Ford/20190512_171136.jpg',
+                '/V5 Website_Ford/20190512_171802.jpg',
+                '/V5 Website_Ford/20220321_205153.jpg'
+            ],
+            specs: {
+                weight: '24 kg',
+                load: '170 kg',
+                install: t('model_v5_install'),
+                compatibility: t('model_v5_compat'),
+                height: '95 cm',
+                clearance: '85 cm',
+                bed: '185 × 90 cm',
+                mattress: '170 × 86 cm'
+            },
+            features: [
+                t('model_v5_f1'),
+                t('model_v5_f2'),
+                t('model_v5_f3'),
+                t('model_v5_f4')
+            ]
+        },
+        {
+            id: 'V6 DAILY',
+            for: 'Iveco Daily',
+            desc: t('model_v6_desc'),
+            images: [
+                '/Website_Individuelle Loesungen/20250607_115009.jpg',
+                '/Website_Individuelle Loesungen/IMG_20170704_153912.jpg',
+                '/V1 Website_Fiat,Citroen,Peugeot,Opel/20190722_113028.jpg',
+                '/V1 Website_Fiat,Citroen,Peugeot,Opel/DSC03541.JPG'
+            ],
+            specs: {
+                weight: '29 kg',
+                load: '150 kg',
+                install: t('model_v6_install'),
+                compatibility: t('model_v6_compat'),
+                height: '85 cm',
+                clearance: '105 cm',
+                bed: '195 × 90 cm',
+                mattress: '180 × 80 cm'
+            },
+            features: [
+                t('model_v6_f1'),
+                t('model_v6_f2'),
+                t('model_v6_f3'),
+                t('model_v6_f4')
+            ]
+        },
+         {
+            id: 'V4 MASTER',
+            for: 'Renault Master',
+            desc: t('model_v4_desc'),
+            images: [
+                '/V4 Website_Renault/20190806_103915.jpg',
+                '/V4 Website_Renault/20190726_114109.jpg',
+                '/V4 Website_Renault/20190726_114807.jpg',
+                '/V4 Website_Renault/IMG_20171215_134449.jpg',
+                '/V4 Website_Renault/20231002_131307.jpg'
+            ],
+            specs: {
+                weight: '24 kg',
+                load: '150 kg',
+                install: t('model_v4_install'),
+                compatibility: t('model_v4_compat'),
+                height: '80 cm',
+                clearance: '102 cm',
+                bed: '185 × 90 cm',
+                mattress: '172 × 84 cm'
+            },
+            features: [
+                t('model_v4_f1'),
+                t('model_v4_f2'),
+                t('model_v4_f3'),
+                t('model_v4_f4')
+            ]
+        }
+    ];
+
+    const [selectedId, setSelectedId] = useState(expandedModels[0].id);
+    const selectedModel = expandedModels.find(m => m.id === selectedId) || expandedModels[0];
+
+    const [currentImgIndex, setCurrentImgIndex] = useState(0);
+
+    useEffect(() => {
+        setCurrentImgIndex(0);
+    }, [selectedId]);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentImgIndex(prev => (prev + 1) % selectedModel.images.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, [selectedModel.images.length, selectedId]);
+
+    // Scroll to top on mount
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
-        <motion.section
+        <motion.div
+            className="system-page"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={{ paddingTop: '15vh', minHeight: '100vh', background: '#fff' }}
         >
-            <div className="container">
-                <h1 className="h1" style={{ marginBottom: '2rem', textAlign: 'center' }}>Die Flotte</h1>
-                <p className="text-body" style={{ margin: '0 auto 8rem auto', textAlign: 'center', maxWidth: '600px' }}>
-                    Präzision für jedes Chassis. Wählen Sie Ihr Fahrzeug für die perfekte Schlaflösung.
-                </p>
+            {/* --- 1. SYSTEM / CONCEPT INTRO --- */}
+            <section className="concept-section">
+                <div style={{ maxWidth: '1600px', margin: '0 auto' }}>
+                    <motion.div
+                        initial={{ y: 50, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <h2 style={{ textTransform: 'uppercase', letterSpacing: '0.2em', fontSize: '1rem', color: '#00AEEF', marginBottom: '1rem' }}>
+                            {t('model_subtitle')}
+                        </h2>
+                        <h1 className="concept-title" dangerouslySetInnerHTML={{ __html: t('model_title') }} />
+                        <p className="concept-subtitle">
+                            {t('model_desc')}
+                        </p>
+                    </motion.div>
 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
-                    {expandedModels.map((model, i) => (
-                        <motion.div
-                            key={model.id}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: i * 0.1 }}
-                            style={{ borderTop: '1px solid #eee', position: 'relative' }}
-                        >
-                            <div
-                                onClick={() => setSelected(selected === model.id ? null : model.id)}
-                                style={{
-                                    padding: '4rem 0',
-                                    cursor: 'pointer',
-                                    display: 'grid',
-                                    gridTemplateColumns: 'minmax(200px, 1fr) 2fr 100px',
-                                    alignItems: 'center',
-                                    gap: '2rem'
-                                }}
-                                className="model-row"
+                    <div className="features-grid">
+                        {systemFeatures.map((feature, idx) => (
+                            <motion.div
+                                key={idx}
+                                className="feature-card"
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2 + idx * 0.1, duration: 0.6 }}
                             >
-                                <h3 className="h2" style={{ margin: 0, fontSize: 'clamp(2rem, 3vw, 3rem)' }}>{model.id}</h3>
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-                                    <span style={{ fontSize: '0.9rem', color: 'var(--color-accent)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                                        For {model.for.split(',')[0]}
-                                    </span>
-                                    <span style={{ color: '#666', maxWidth: '500px' }} className="hide-mobile">
-                                        {model.desc}
-                                    </span>
+                                <div className="feature-icon">
+                                    {/* Using SVG paths directly for simplicity without extra icon imports */}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d={feature.icon} />
+                                    </svg>
                                 </div>
-                                <div style={{ marginLeft: 'auto' }}>
-                                    <MagneticButton
-                                        style={{
-                                            width: '50px',
-                                            height: '50px',
-                                            borderRadius: '50%',
-                                            background: selected === model.id ? 'var(--color-accent)' : '#000',
-                                            display: 'flex',
-                                            alignItems: 'center',
-                                            justifyContent: 'center',
-                                            color: '#fff',
-                                            transition: 'background 0.3s'
-                                        }}
-                                    >
-                                        <ArrowRight style={{ transform: selected === model.id ? 'rotate(90deg)' : 'rotate(0deg)', transition: 'transform 0.3s' }} />
-                                    </MagneticButton>
-                                </div>
-                            </div>
+                                <h3 className="feature-title">{feature.title}</h3>
+                                <p className="feature-desc">{feature.desc}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
 
-                            <AnimatePresence>
-                                {selected === model.id && (
-                                    <motion.div
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: 'auto', opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        style={{ overflow: 'hidden' }}
-                                    >
-                                        <div style={{ paddingBottom: '4rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem' }}>
-
-                                            <div style={{ height: '400px', background: '#f0f0f0', borderRadius: '4px', overflow: 'hidden' }}>
-                                                <img src={model.img} alt={model.id} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(0%) contrast(1.1)' }} />
-                                            </div>
-
-                                            <div>
-                                                <h4 className="h3" style={{ marginBottom: '2rem' }}>Spezifikationen</h4>
-                                                <p className="text-body" style={{ marginBottom: '2rem' }}>{model.desc}</p>
-
-                                                <div style={{ marginBottom: '3rem' }}>
-                                                    {model.details.map((d, idx) => (
-                                                        <div key={idx} style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', alignItems: 'flex-start' }}>
-                                                            <Check size={20} color="var(--color-accent)" style={{ marginTop: '3px' }} />
-                                                            <span style={{ fontSize: '1rem', color: '#444' }}>{d}</span>
-                                                        </div>
-                                                    ))}
-                                                </div>
-
-                                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '3rem' }}>
-                                                    {model.technical.map((t, idx) => (
-                                                        <div key={idx} style={{ padding: '1rem', borderLeft: '2px solid #eee' }}>
-                                                            <span style={{ fontSize: '0.85rem', color: '#666', display: 'block', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                                                                {t.split(':')[0]}
-                                                            </span>
-                                                            <span style={{ fontSize: '1.1rem', fontWeight: 600 }}>
-                                                                {t.split(':')[1] || ''}
-                                                            </span>
-                                                        </div>
-                                                    ))}
-                                                </div>
-
-                                                <MagneticButton className="cta-button" style={{ background: '#000', color: '#fff', width: '100%' }}>
-                                                    Konfiguration anfragen
-                                                </MagneticButton>
-                                            </div>
-
-                                        </div>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                        </motion.div>
-                    ))}
-                    <div style={{ borderTop: '1px solid #eee' }} />
+            {/* --- 2. MODEL SELECTOR (STICKY) --- */}
+            <div className="selector-section">
+                <div style={{ maxWidth: '1600px', margin: '0 auto' }}>
+                    <h3 style={{ fontSize: '0.9rem', textTransform: 'uppercase', color: '#888', marginBottom: '1rem', letterSpacing: '0.1em' }}>
+                        {t('model_select_vehicle')}
+                    </h3>
+                    <div className="selector-nav">
+                        {expandedModels.map((model) => (
+                            <button
+                                key={model.id}
+                                onClick={() => setSelectedId(model.id)}
+                                className={`model-btn ${selectedId === model.id ? 'active' : ''}`}
+                            >
+                                {model.for}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
 
-            <style>{`
-        @media (max-width: 768px) {
-          .hide-mobile { display: none; }
-          .model-row { grid-template-columns: 1fr auto !important; }
-        }
-      `}</style>
-        </motion.section>
+            {/* --- 3. DETAILED PRODUCT VIEW --- */}
+            <div className="detail-view">
+                <AnimatePresence mode="wait">
+                    <motion.div
+                        key={selectedId}
+                        className="detail-grid"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        transition={{ duration: 0.4 }}
+                    >
+                        {/* Visuals */}
+                        <div className="visual-container">
+                            <AnimatePresence mode="wait">
+                                <motion.img 
+                                    key={currentImgIndex}
+                                    src={selectedModel.images[currentImgIndex]} 
+                                    alt={selectedModel.id} 
+                                    className="main-image"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.5 }}
+                                    style={{ width: '100%', aspectRatio: '16/9', objectFit: 'cover', borderRadius: '12px', background: '#f8f8f8' }}
+                                />
+                            </AnimatePresence>
+                            <div style={{ marginTop: '1.5rem', display: 'flex', gap: '1rem', overflowX: 'auto', paddingBottom: '0.5rem' }}>
+                                {selectedModel.images.map((img: string, idx: number) => {
+                                    if (idx === currentImgIndex) return null;
+                                    return (
+                                        <div 
+                                            key={idx} 
+                                            onClick={() => setCurrentImgIndex(idx)}
+                                            style={{ 
+                                                width: '120px', 
+                                                height: '80px', 
+                                                borderRadius: '8px', 
+                                                background: '#f0f0f0', 
+                                                flexShrink: 0,
+                                                cursor: 'pointer',
+                                                overflow: 'hidden',
+                                                border: '1px solid #eaeaea'
+                                            }}
+                                        >
+                                            <img src={img} alt={`Thumbnail ${idx}`} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
+
+                        {/* Info */}
+                        <div className="info-container">
+                            <h1 className="model-name">KLABINE {selectedModel.id}</h1>
+                            <span className="model-sub">{t('model_for')} {selectedModel.for}</span>
+                            
+                            <p className="model-desc">
+                                {selectedModel.desc}
+                            </p>
+
+                            <div className="specs-grid">
+                                <div className="spec-item">
+                                    <h4>{t('model_spec_weight')}</h4>
+                                    <p>{selectedModel.specs.weight}</p>
+                                </div>
+                                <div className="spec-item">
+                                    <h4>{t('model_spec_load')}</h4>
+                                    <p>{selectedModel.specs.load}</p>
+                                </div>
+                                <div className="spec-item">
+                                    <h4>{t('sys_col_height')}</h4>
+                                    <p>{selectedModel.specs.height}</p>
+                                </div>
+                                <div className="spec-item">
+                                    <h4>{t('sys_col_clearance')}</h4>
+                                    <p>{selectedModel.specs.clearance}</p>
+                                </div>
+                                <div className="spec-item">
+                                    <h4>{t('sys_col_bed')}</h4>
+                                    <p>{selectedModel.specs.bed}</p>
+                                </div>
+                                <div className="spec-item">
+                                    <h4>{t('sys_col_mat')}</h4>
+                                    <p>{selectedModel.specs.mattress}</p>
+                                </div>
+                                <div className="spec-item">
+                                    <h4>{t('model_spec_install')}</h4>
+                                    <p>{selectedModel.specs.install}</p>
+                                </div>
+                                <div className="spec-item">
+                                    <h4>{t('model_spec_compat')}</h4>
+                                    <p>{selectedModel.specs.compatibility}</p>
+                                </div>
+                            </div>
+
+                            <div style={{ marginBottom: '3rem' }}>
+                                <h4 style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '1.5rem' }}>{t('model_highlights')}</h4>
+                                <ul className="key-features-list" style={{ listStyle: 'none', padding: 0 }}>
+                                    {selectedModel.features.map((feature, idx) => (
+                                        <li key={idx}>
+                                            <Check size={20} color="#00AEEF" style={{ marginRight: '1rem' }} />
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <a href="/contact" style={{ display: 'inline-block', textDecoration: 'none' }}>
+                                <button style={{
+                                    background: '#000',
+                                    color: '#fff',
+                                    padding: '1.2rem 3rem',
+                                    borderRadius: '50px',
+                                    fontSize: '1.1rem',
+                                    fontWeight: 600,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    border: 'none',
+                                    cursor: 'pointer',
+                                    transition: 'transform 0.2s',
+                                    boxShadow: '0 10px 20px rgba(0,0,0,0.15)'
+                                }}>
+                                    {t('model_submit')}
+                                    <ArrowRight size={20} style={{ marginLeft: '10px' }} />
+                                </button>
+                            </a>
+                        </div>
+                    </motion.div>
+                </AnimatePresence>
+            </div>
+        </motion.div>
     );
 };

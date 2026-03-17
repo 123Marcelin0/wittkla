@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
-
-const questions = [
-    { q: 'Für welche Fahrzeuge ist die Klabine geeignet?', a: 'Die Klabine ist verfügbar für Fiat Ducato, Mercedes Sprinter, VW Crafter, Renault Master, Ford Transit, Iveco Daily, MAN TGE, Citroën Jumper, Peugeot Boxer und Opel Movano. Wir decken nahezu alle gängigen Transporter ab.' },
-    { q: 'Wie lange dauert die Installation?', a: 'Die Installation ist extrem effizient gestaltet und dauert in der Regel etwa 3 Stunden. Wir bieten auch einen mobilen Einbauservice an, der direkt zu Ihnen kommt.' },
-    { q: 'Was ist das Hauptmaterial?', a: 'Wir nutzen hochwertige, leichte und dennoch extrem robuste Materialien aus dem Flugzeug- und Fahrzeugbau, um Langlebigkeit bei minimalem Gewicht zu garantieren.' },
-    { q: 'Kann ich die Klabine selbst einbauen?', a: 'Ja, das System ist modular konzipiert. Allerdings empfehlen wir für die perfekte Passform und Sicherheit unseren professionellen Einbauservice.' },
-];
+import { useTranslation } from 'react-i18next';
 
 export const FAQ: React.FC = () => {
     const [active, setActive] = useState<number | null>(null);
+    const { t } = useTranslation();
+
+    const questions = [
+        { q: t('faq_1_q'), a: t('faq_1_a') },
+        { q: t('faq_2_q'), a: t('faq_2_a') },
+        { q: t('faq_3_q'), a: t('faq_3_a') },
+        { q: t('faq_4_q'), a: t('faq_4_a') },
+    ];
 
     return (
         <motion.section
@@ -20,7 +22,7 @@ export const FAQ: React.FC = () => {
             style={{ paddingTop: '20vh', minHeight: '100vh', background: '#fff' }}
         >
             <div className="container" style={{ maxWidth: '1000px' }}>
-                <h1 className="h1" style={{ marginBottom: '5rem', textAlign: 'center' }}>Q & A</h1>
+                <h1 className="h1" style={{ marginBottom: '5rem', textAlign: 'center' }}>{t('faq_title')}</h1>
 
                 <div style={{ borderTop: '1px solid #000' }}>
                     {questions.map((item, i) => (

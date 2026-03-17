@@ -8,6 +8,10 @@ import { Philosophy } from './components/Philosophy';
 import { FAQ } from './components/FAQ';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { Impressum } from './components/Impressum';
+import { Datenschutz } from './components/Datenschutz';
+import { Gallery } from './components/Gallery';
+import { SocialBar } from './components/SocialBar';
 import { useEffect } from 'react';
 
 function ScrollToTop() {
@@ -27,13 +31,18 @@ function App() {
       <Navigation />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
+
           <Route path="/" element={<Home />} />
           <Route path="/models" element={<Models />} />
           <Route path="/philosophy" element={<Philosophy />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/impressum" element={<Impressum />} />
+          <Route path="/datenschutz" element={<Datenschutz />} />
         </Routes>
       </AnimatePresence>
+      <SocialBar />
       <Footer />
     </>
   );

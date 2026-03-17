@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import './ProductShowcase.css';
 
 interface Hotspot {
@@ -10,14 +11,17 @@ interface Hotspot {
     desc: string;
 }
 
-const hotspots: Hotspot[] = [
-    { id: 1, x: 50, y: 55, title: 'Titan-Scharnier', desc: 'Geräuschlose Faltmechanik. Für 10.000 Zyklen getestet.' },
-    { id: 2, x: 30, y: 45, title: 'Smart-Mesh', desc: 'High-Tech Gewebe für optimale Belüftung und Isolation.' },
-    { id: 3, x: 70, y: 65, title: 'Modular-Mount', desc: 'Universelle Passform für Sprinter, Crafter & Co.' },
-];
-
 export const ProductShowcase: React.FC = () => {
     const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
+    const { t } = useTranslation();
+
+    const hotspots: Hotspot[] = [
+        { id: 1, x: 20, y: 30, title: t('showcase_h1_title'), desc: t('showcase_h1_desc') },
+        { id: 2, x: 50, y: 50, title: t('showcase_h2_title'), desc: t('showcase_h2_desc') },
+        { id: 3, x: 80, y: 40, title: t('showcase_h3_title'), desc: t('showcase_h3_desc') },
+        { id: 4, x: 30, y: 70, title: t('showcase_h4_title'), desc: t('showcase_h4_desc') },
+        { id: 5, x: 70, y: 70, title: t('showcase_h5_title'), desc: t('showcase_h5_desc') },
+    ];
 
     const GeometricBg = () => (
         <svg className="watermark-logo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,15 +36,15 @@ export const ProductShowcase: React.FC = () => {
                 <GeometricBg />
             </div>
 
-            <h2 className="section-title">DAS SYSTEM</h2>
+            <h2 className="section-title">{t('showcase_title')}</h2>
 
             <div className="product-container">
                 <div className="product-visual">
                     <div className="product-image-container">
-                        {/* Minimalist Bed / Structure Placeholder */}
+                        {/* Actual Klabine Image from previous site */}
                         <img
-                            src="https://images.unsplash.com/photo-1505693375584-b5843dcbe3a2?q=80&w=2069&auto=format&fit=crop"
-                            alt="Klabine System"
+                            src="https://le-cdn.website-editor.net/s/43de1bcbf83a48fa8480f618520974da/dms3rep/multi/opt/Klabine+Renault+Master-1920w.jpg"
+                            alt={t('showcase_alt')}
                             className="product-image"
                         />
                     </div>

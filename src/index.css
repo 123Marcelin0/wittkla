@@ -1,10 +1,12 @@
 :root {
   --color-bg: #FFFFFF;
   --color-text: #000000;
-  --color-accent: #00AEEF; /* Adjusted to a likely corporate cyan based on description */
-  --color-gray: #555555; /* Technical Gray */
+  --color-accent: #00AEEF;
+  /* Adjusted to a likely corporate cyan based on description */
+  --color-gray: #555555;
+  /* Technical Gray */
   --color-light-gray: #F5F5F5;
-  --font-main: 'Inter', sans-serif;
+  --font-main: 'Outfit', 'Inter', sans-serif;
   --easing: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -24,7 +26,7 @@ body {
   font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
   font-size: 16px;
   line-height: 1.4;
   cursor: default;
@@ -94,12 +96,15 @@ button {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--color-bg);
 }
+
 ::-webkit-scrollbar-thumb {
   background: #E0E0E0;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-gray);
 }

@@ -14,7 +14,7 @@ export const Logo: React.FC<LogoProps> = ({ color = 'white', width = '140px' }) 
     return (
         <div style={{ display: 'flex', alignItems: 'center' }}>
             <img
-                src="/wittkla-logo.webp"
+                src="/wittkla-logo.png"
                 alt="Wittkla Logo"
                 style={{
                     width: width,

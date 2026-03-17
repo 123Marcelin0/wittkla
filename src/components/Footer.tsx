@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 export const Footer: React.FC = () => {
+    const { t } = useTranslation();
     return (
         <footer style={{ background: '#050505', color: '#fff', padding: '15vh 5vw 5vh 5vw' }}>
             <div style={{ width: '100%', maxWidth: '1600px', margin: '0 auto', textAlign: 'center' }}>
@@ -23,8 +25,9 @@ export const Footer: React.FC = () => {
                 </motion.a>
 
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', fontSize: '0.875rem', color: '#666' }}>
-                    <a href="#" style={{ transition: 'color 0.2s', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Impressum</a>
-                    <a href="#" style={{ transition: 'color 0.2s', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Datenschutz</a>
+                    <a href="https://www.amazon.de/dp/B0DPQBTK2X" target="_blank" rel="noopener noreferrer" style={{ transition: 'color 0.2s', textTransform: 'uppercase', letterSpacing: '0.1em', textDecoration: 'none', color: 'inherit' }}>Shop</a>
+                    <a href="/impressum" style={{ transition: 'color 0.2s', textTransform: 'uppercase', letterSpacing: '0.1em', textDecoration: 'none', color: 'inherit' }}>{t('footer_imprint')}</a>
+                    <a href="/datenschutz" style={{ transition: 'color 0.2s', textTransform: 'uppercase', letterSpacing: '0.1em', textDecoration: 'none', color: 'inherit' }}>{t('footer_privacy')}</a>
                 </div>
 
                 <div style={{ marginTop: '8rem', fontSize: '12px', color: '#333', textTransform: 'uppercase', letterSpacing: '0.2em' }}>
