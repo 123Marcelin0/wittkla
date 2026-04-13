@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@formspree/react": "^3.0.0",
     "dotenv": "^17.3.1",
     "framer-motion": "^12.24.0",
     "hamburger-react": "^2.5.2",

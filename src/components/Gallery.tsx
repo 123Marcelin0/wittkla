@@ -39,7 +39,7 @@ export const Gallery: React.FC = () => {
                 >
                     <h1 className="h1" style={{ marginBottom: '1rem', textAlign: 'center', color: '#000' }}>{t('nav_portfolio')}</h1>
                     <p className="text-body" style={{ margin: '0 auto 5rem auto', textAlign: 'center', maxWidth: '600px', color: '#666' }}>
-                        Einblicke in unsere Arbeit. Jede Klabine ist ein Unikat, perfekt angepasst auf Ihren Transporter.
+                        Einblicke in unsere Arbeit.
                     </p>
                 </motion.div>
 
@@ -53,7 +53,7 @@ export const Gallery: React.FC = () => {
                             transition={{ duration: 0.6, delay: (i % 3) * 0.1 }}
                             style={{ 
                                 marginBottom: '2rem', 
-                                borderRadius: '12px', 
+                                borderRadius: 'var(--radius)',
                                 overflow: 'hidden',
                                 position: 'relative',
                                 cursor: 'crosshair',

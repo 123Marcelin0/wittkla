@@ -28,7 +28,7 @@ export const VideoSection: React.FC = () => {
                     width: '100%',
                     maxWidth: '1400px',
                     aspectRatio: '16/9',
-                    borderRadius: '20px',
+                    borderRadius: 'var(--radius)',
                     overflow: 'hidden',
                     boxShadow: '0 20px 40px rgba(0,0,0,0.1)',
                     scale,

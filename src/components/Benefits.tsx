@@ -33,8 +33,9 @@ export const Benefits: React.FC = () => {
                         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                         style={{
                             padding: '3rem 2rem',
-                            borderLeft: '1px solid #eee',
-                            transition: 'background 0.3s',
+                            borderRadius: 'var(--radius)',
+                            background: '#F9F9F9',
+                            transition: 'background 0.3s, transform 0.3s',
                             cursor: 'default'
                         }}
                         onMouseEnter={(e) => { e.currentTarget.style.background = '#fafafa'; }}
@@ -51,9 +52,9 @@ export const Benefits: React.FC = () => {
                             <span style={{
                                 fontSize: '4rem',
                                 fontWeight: 800,
-                                opacity: 0.05,
+                                opacity: 0.1,
                                 lineHeight: 0.8,
-                                color: '#000'
+                                color: 'var(--color-accent)'
                             }}>
                                 {b.id}
                             </span>

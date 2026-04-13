@@ -3,6 +3,7 @@
 .system-page {
     background-color: #fcfcfc;
     min-height: 100vh;
+    padding-top: max(14vh, 120px);
     padding-bottom: 5rem;
     color: #333;
 }
@@ -11,7 +12,7 @@
 .concept-section {
     padding: 15vh 5vw 5vh 5vw;
     text-align: center;
-    background: #fff;
+    background: transparent;
     position: relative;
     overflow: hidden;
 }
@@ -54,7 +55,7 @@
 
 .feature-icon {
     margin-bottom: 1.5rem;
-    color: #00AEEF;
+    color: var(--color-accent);
 }
 
 .feature-title {
@@ -74,15 +75,13 @@
 
 /* 2. Selector */
 .selector-section {
-    position: sticky;
-    top: 80px;
-    /* Adjust based on header height */
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 50;
-    padding: 1.5rem 5vw;
-    border-bottom: 1px solid #eee;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    position: static;
+    background: transparent;
+    padding: 2rem 5vw;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .selector-nav {
@@ -100,7 +99,7 @@
 .model-btn {
     padding: 0.75rem 1.5rem;
     border: 1px solid #ddd;
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     font-size: 0.9rem;
     font-weight: 500;
     white-space: nowrap;
@@ -112,37 +111,36 @@
 }
 
 .model-btn:hover {
-    border-color: #000;
-    color: #000;
+    border-color: var(--color-accent);
+    color: var(--color-accent);
 }
 
 .model-btn.active {
-    background: #000;
+    background: var(--color-accent);
     color: #fff;
-    border-color: #000;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-accent);
 }
 
 /* 3. Detail View */
 .detail-view {
-    padding: 5vh 5vw;
+    padding: 2vh 5vw 10vh 5vw;
     min-height: 80vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .detail-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5vw;
-    max-width: 1600px;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 6vw;
+    max-width: 1500px;
+    align-items: start;
     margin: 0 auto;
     width: 100%;
 }
 
 .visual-container {
-    position: relative;
-    border-radius: 12px;
+    border-radius: var(--radius);
     overflow: hidden;
     height: fit-content;
 }
@@ -151,7 +149,7 @@
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 12px;
+    border-radius: var(--radius);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
@@ -189,12 +187,13 @@
 .specs-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 2rem 3rem;
     margin-bottom: 3rem;
-    padding: 2rem;
+    padding: 2.5rem;
     background: #fff;
-    border-radius: 8px;
-    border: 1px solid #eee;
+    border-radius: var(--radius);
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
 }
 
 .spec-item h4 {

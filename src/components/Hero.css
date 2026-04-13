@@ -15,7 +15,7 @@
     width: 100%;
     height: calc(100vh - max(14vh, 120px) - 2vw);
     min-height: 600px;
-    border-radius: 20px;
+    border-radius: var(--radius);
     overflow: hidden;
     background-color: #000;
     display: flex;
@@ -137,5 +137,5 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 40px;
+    border-radius: var(--radius-full);
 }

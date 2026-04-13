@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { MagneticButton } from './MagneticButton';
 import './Hero.css';
 
@@ -20,7 +21,7 @@ export const Hero: React.FC = () => {
                 <div className="hero-bg">
                     <iframe 
                         className="hero-video"
-                        src="https://www.youtube.com/embed/izQx9iOvNY0?autoplay=1&mute=1&loop=1&playlist=izQx9iOvNY0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+                        src="https://www.youtube.com/embed/izQx9iOvNY0?autoplay=1&mute=1&loop=1&playlist=izQx9iOvNY0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&end=136"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                     ></iframe>
@@ -53,7 +54,7 @@ export const Hero: React.FC = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, delay: 0.2 }}
-                                className="hero-subline"
+                                className="hero-subline text-accent"
                             >
                                 {t('hero_subline')}
                             </motion.p>
@@ -97,29 +98,29 @@ export const Hero: React.FC = () => {
                         alignItems: 'center'
                     }}
                 >
-
-                    <motion.a 
-                        href="https://www.amazon.de/s?k=wittkla" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        style={{ textDecoration: 'none' }}
+                    <motion.div
                         layout
                         transition={{ layout: { duration: 1.2, ease: [0.16, 1, 0.3, 1] } }}
                     >
-                        <MagneticButton
-                            className="cta-button"
-                            style={{
-                                backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                                backdropFilter: 'blur(12px)',
-                                WebkitBackdropFilter: 'blur(12px)',
-                                color: '#fff',
-                                border: '1px solid rgba(255, 255, 255, 0.3)',
-                                boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)'
-                            }}
+                        <Link 
+                            to="/models" 
+                            style={{ textDecoration: 'none' }}
                         >
-                            {t('amazon_shop')}
-                        </MagneticButton>
-                    </motion.a>
+                            <MagneticButton
+                                className="cta-button"
+                                style={{
+                                    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                                    backdropFilter: 'blur(12px)',
+                                    WebkitBackdropFilter: 'blur(12px)',
+                                    color: '#fff',
+                                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                                    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)'
+                                }}
+                            >
+                                {t('to_klabine')}
+                            </MagneticButton>
+                        </Link>
+                    </motion.div>
                 </motion.div>
                 </div>
             </div>

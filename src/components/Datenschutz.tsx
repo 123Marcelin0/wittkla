@@ -7,7 +7,7 @@ export const Datenschutz: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            style={{ paddingTop: '15vh', minHeight: '100vh', background: '#fff', color: '#000' }}
+            style={{ paddingTop: 'max(14vh, 120px)', minHeight: '100vh', background: '#fcfcfc', color: '#000' }}
         >
             <div className="container" style={{ maxWidth: '800px', margin: '0 auto', padding: '0 5vw', paddingBottom: '10vh' }}>
                 <h1 className="h1" style={{ marginBottom: '3rem', fontSize: '2.5rem', fontWeight: 700 }}>Datenschutzerklärung</h1>

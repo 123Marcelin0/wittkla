@@ -1,9 +1,9 @@
 /* Contact.css */
 .contact-section {
-    padding-top: 20vh;
-    padding-bottom: 15vh; /* Added to keep distance from the bottom black section (footer) */
+    padding-top: max(14vh, 120px);
+    padding-bottom: 10vh;
     min-height: 100vh;
-    background: #fdfdfd;
+    background: #fcfcfc;
     color: #111;
     font-family: var(--font-main, 'Inter', sans-serif);
 }
@@ -44,11 +44,17 @@
 
 .contact-title {
     font-size: clamp(3rem, 6vw, 4.5rem);
-    font-weight: 300;
+    font-weight: 800;
     line-height: 1.1;
     letter-spacing: -0.02em;
     margin-bottom: 3rem;
     color: #000;
+    text-transform: uppercase;
+}
+
+.direct-contact-btn.facebook:hover {
+    color: #1877F2;
+    border-color: #1877F2;
 }
 
 .contact-info-block {
@@ -84,7 +90,7 @@
     padding: 16px 20px;
     background: #fff;
     border: 1px solid #eaeaea;
-    border-radius: 12px;
+    border-radius: var(--radius-sm);
     text-decoration: none;
     color: #111;
     font-weight: 500;
@@ -133,7 +139,7 @@
     gap: 2.5rem;
     background: #fff;
     padding: 40px;
-    border-radius: 20px;
+    border-radius: var(--radius-sm);
     border: 1px solid #eaeaea;
     box-shadow: 0 10px 40px rgba(0,0,0,0.03);
 }
@@ -189,7 +195,7 @@
     cursor: pointer;
     appearance: none;
     -webkit-appearance: none;
-    border-radius: 0;
+    border-radius: var(--radius-sm);
 }
 
 .form-select:focus {
@@ -238,7 +244,7 @@
     font-weight: 500;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    border-radius: 50px;
+    border-radius: var(--radius-sm);
     cursor: pointer;
     transition: all 0.3s ease;
     align-self: flex-start;
@@ -258,4 +264,18 @@
     .contact-form {
         padding: 30px 20px;
     }
+}
+
+.contact-success {
+    background: #fff;
+    border-radius: var(--radius);
+    border: 1px solid #eaeaea;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+}
+
+.contact-form span[role="alert"] {
+    color: #ff4d4f;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    display: block;
 }

@@ -61,7 +61,7 @@ export const AboutSection: React.FC = () => {
                     className="about-title"
                 >
                     {t('about_title_1')}<br />
-                    <span className="about-title-bold">{t('about_title_2')}</span>
+                    <span className="about-title-bold text-accent">{t('about_title_2')}</span>
                 </motion.h2>
             </div>
 
@@ -82,11 +82,9 @@ export const AboutSection: React.FC = () => {
                     </motion.div>
                     <motion.div className="timeline-content text" variants={itemRightVariants}>
                         <div className="timeline-text">
-                            <span className="timeline-step-number">{t('about_step1_tag')}</span>
+                            <span className="timeline-step-number text-accent">{t('about_step1_tag')}</span>
                             <h3 className="timeline-step-title">{t('about_step1_title')}</h3>
-                            <p className="timeline-step-desc">
-                                {t('about_step1_desc')}
-                            </p>
+                            <p className="timeline-step-desc" dangerouslySetInnerHTML={{ __html: t('about_step1_desc') }} />
                         </div>
                     </motion.div>
                 </div>
@@ -100,11 +98,9 @@ export const AboutSection: React.FC = () => {
                     </motion.div>
                     <motion.div className="timeline-content text" variants={itemLeftVariants}>
                         <div className="timeline-text">
-                            <span className="timeline-step-number">{t('about_step2_tag')}</span>
+                            <span className="timeline-step-number text-accent">{t('about_step2_tag')}</span>
                             <h3 className="timeline-step-title">{t('about_step2_title')}</h3>
-                            <p className="timeline-step-desc">
-                                {t('about_step2_desc')}
-                            </p>
+                            <p className="timeline-step-desc" dangerouslySetInnerHTML={{ __html: t('about_step2_desc') }} />
                         </div>
                     </motion.div>
                 </div>
@@ -118,11 +114,9 @@ export const AboutSection: React.FC = () => {
                     </motion.div>
                     <motion.div className="timeline-content text" variants={itemRightVariants}>
                         <div className="timeline-text">
-                            <span className="timeline-step-number">{t('about_step3_tag')}</span>
+                            <span className="timeline-step-number text-accent">{t('about_step3_tag')}</span>
                             <h3 className="timeline-step-title">{t('about_step3_title')}</h3>
-                            <p className="timeline-step-desc">
-                                {t('about_step3_desc')}
-                            </p>
+                            <p className="timeline-step-desc" dangerouslySetInnerHTML={{ __html: t('about_step3_desc') }} />
                         </div>
                     </motion.div>
                 </div>
@@ -136,11 +130,9 @@ export const AboutSection: React.FC = () => {
                     </motion.div>
                     <motion.div className="timeline-content text" variants={itemLeftVariants}>
                         <div className="timeline-text">
-                            <span className="timeline-step-number">{t('about_step4_tag')}</span>
+                            <span className="timeline-step-number text-accent">{t('about_step4_tag')}</span>
                             <h3 className="timeline-step-title">{t('about_step4_title')}</h3>
-                            <p className="timeline-step-desc">
-                                {t('about_step4_desc')}
-                            </p>
+                            <p className="timeline-step-desc" dangerouslySetInnerHTML={{ __html: t('about_step4_desc') }} />
                         </div>
                     </motion.div>
                 </div>

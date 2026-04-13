@@ -1,13 +1,16 @@
 :root {
   --color-bg: #FFFFFF;
   --color-text: #000000;
-  --color-accent: #00AEEF;
-  /* Adjusted to a likely corporate cyan based on description */
+  --color-accent: #0078D6;
+  /* Adjusted to a deeper blue for Mercedes Benz style contrast */
   --color-gray: #555555;
   /* Technical Gray */
   --color-light-gray: #F5F5F5;
   --font-main: 'Outfit', 'Inter', sans-serif;
   --easing: cubic-bezier(0.16, 1, 0.3, 1);
+  --radius: 24px;
+  --radius-sm: 8px;
+  --radius-full: 100px;
 }
 
 * {
@@ -70,6 +73,10 @@ button {
   font-size: 1.125rem;
   color: var(--color-gray);
   max-width: 60ch;
+}
+
+.text-accent {
+  color: var(--color-accent);
 }
 
 /* Utilities */

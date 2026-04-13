@@ -12,7 +12,7 @@ export const Montage: React.FC = () => {
             title: t('montage_step1_title'),
             subtitle: t('montage_step1_subtitle'),
             desc: t('montage_step1_desc'),
-            img: "/Website_Montage, Versand/20221007_174442.jpg"
+            img: "/Website_Montage, Versand/20221007_173739.jpg"
         },
         {
             id: 2,
@@ -50,7 +50,7 @@ export const Montage: React.FC = () => {
                 <div className="montage-text-side">
                     <div className="montage-header">
                         <motion.span 
-                            className="montage-tag"
+                            className="montage-tag text-accent"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-10%" }}
@@ -77,11 +77,19 @@ export const Montage: React.FC = () => {
                                 viewport={{ once: false, margin: "-20% 0px -20% 0px" }}
                                 transition={{ duration: 0.6, ease: "easeOut" }}
                             >
-                                <div className="step-number">0{step.id}</div>
+                                <motion.div 
+                                    className="step-number"
+                                    initial={{ color: "#e0e0e0" }}
+                                    whileInView={{ color: "#0078D6" }}
+                                    viewport={{ margin: "-35% 0px -35% 0px" }}
+                                    transition={{ duration: 0.4 }}
+                                >
+                                    0{step.id}
+                                </motion.div>
                                 <div className="step-content">
                                     <h3 className="step-title">{step.title}</h3>
                                     <h4 className="step-subtitle">{step.subtitle}</h4>
-                                    <p className="step-desc">{step.desc}</p>
+                                    <p className="step-desc" dangerouslySetInnerHTML={{ __html: step.desc }} />
                                 </div>
                                 
                                 {/* Mobile Image */}

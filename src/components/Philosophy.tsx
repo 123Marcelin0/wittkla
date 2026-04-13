@@ -37,9 +37,31 @@ export const Philosophy: React.FC = () => {
                         </div>
                     </div>
 
-                    <div style={{ marginTop: '10vh', height: '50vh', background: '#111', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <span style={{ color: '#333', letterSpacing: '0.1em' }}>{t('phil_visual')}</span>
-                    </div>
+                    <motion.div 
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        style={{ 
+                            marginTop: '10vh', 
+                            height: '60vh', 
+                            borderRadius: 'var(--radius)', 
+                            overflow: 'hidden',
+                            boxShadow: '0 20px 50px rgba(0,0,0,0.5)',
+                            position: 'relative'
+                        }}
+                    >
+                        <img 
+                            src="/Website_Montage, Versand/20221007_173739.jpg" 
+                            alt="Wittkla Klabine Product" 
+                            style={{ 
+                                width: '100%', 
+                                height: '100%', 
+                                objectFit: 'cover',
+                                filter: 'brightness(1)'
+                            }} 
+                        />
+                    </motion.div>
                 </div>
             </div>
         </motion.section>

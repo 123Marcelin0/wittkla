@@ -198,15 +198,6 @@ export const Navigation: React.FC = () => {
                                 </div>
                             ))}
                         </nav>
-
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.6 }}
-                            style={{ position: 'absolute', bottom: '5vh', fontSize: '0.875rem', color: '#999' }}
-                        >
-                            {t('slogan')}
-                        </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>

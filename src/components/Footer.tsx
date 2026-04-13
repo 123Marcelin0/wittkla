@@ -25,13 +25,19 @@ export const Footer: React.FC = () => {
                 </motion.a>
 
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', fontSize: '0.875rem', color: '#666' }}>
-                    <a href="https://www.amazon.de/dp/B0DPQBTK2X" target="_blank" rel="noopener noreferrer" style={{ transition: 'color 0.2s', textTransform: 'uppercase', letterSpacing: '0.1em', textDecoration: 'none', color: 'inherit' }}>Shop</a>
+
                     <a href="/impressum" style={{ transition: 'color 0.2s', textTransform: 'uppercase', letterSpacing: '0.1em', textDecoration: 'none', color: 'inherit' }}>{t('footer_imprint')}</a>
                     <a href="/datenschutz" style={{ transition: 'color 0.2s', textTransform: 'uppercase', letterSpacing: '0.1em', textDecoration: 'none', color: 'inherit' }}>{t('footer_privacy')}</a>
                 </div>
 
-                <div style={{ marginTop: '8rem', fontSize: '12px', color: '#333', textTransform: 'uppercase', letterSpacing: '0.2em' }}>
-                    &copy; {new Date().getFullYear()} Wittkla GmbH.
+                <div style={{ marginTop: '4rem', color: '#666', fontSize: '0.9rem', lineHeight: '1.6' }}>
+                    <p>Firma WITTKLA</p>
+                    <p>Wellendorfer Straße 124, 49124 Georgsmarienhütte, Germany</p>
+                    <p>Telefon: +49 5401831598 | Mobil: +49 1725966830</p>
+                </div>
+
+                <div style={{ marginTop: '3rem', fontSize: '12px', color: '#444', textTransform: 'uppercase', letterSpacing: '0.2em' }}>
+                    &copy; {new Date().getFullYear()} Wittkla.
                 </div>
             </div>
         </footer>
