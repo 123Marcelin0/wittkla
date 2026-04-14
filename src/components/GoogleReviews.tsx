@@ -8,7 +8,7 @@ export const GoogleReviews: React.FC = () => {
         <section className="google-reviews-section">
             <div className="reviews-container">
                 <h2 className="section-title">
-                    {t('review_title')}
+                    {t('review_title_prefix')} <span className="text-accent">{t('review_title_accent')}</span>
                 </h2>
 
                 <div className="reviews-grid">

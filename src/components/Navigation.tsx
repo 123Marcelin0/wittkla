@@ -83,10 +83,10 @@ export const Navigation: React.FC = () => {
                     </div>
                     <span style={{ 
                         fontFamily: 'var(--font-main, Inter)', 
-                        fontWeight: 300, 
-                        fontSize: '0.55rem', 
-                        letterSpacing: '0.2em', 
-                        color: '#666',
+                        fontWeight: 400, 
+                        fontSize: '0.65rem', 
+                        letterSpacing: '0.3em', 
+                        color: '#111',
                         textTransform: 'uppercase',
                         marginTop: '6px'
                     }}>
