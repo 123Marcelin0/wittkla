@@ -327,7 +327,7 @@ export const Models: React.FC = () => {
                                     }}
                                 />
                             </AnimatePresence>
-                            <div style={{ marginTop: '1.5rem', display: 'flex', gap: '1rem', overflowX: 'auto', paddingBottom: '0.5rem' }}>
+                            <div style={{ marginTop: '1.5rem', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem', paddingBottom: '0.5rem' }}>
                                 {(() => {
                                     const indices = [];
                                     for(let i=1; i<=4; i++) {

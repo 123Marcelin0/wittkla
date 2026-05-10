@@ -163,19 +163,21 @@ const specsTable = [
                         {t('sys_subtitle')}
                     </motion.p>
                     
-                    <div className="vehicle-switcher-track">
-                        <span style={{ fontSize: '0.85rem', color: '#666', marginRight: '1rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                    <div className="vehicle-switcher-container">
+                        <span style={{ display: 'block', fontSize: '0.85rem', color: '#666', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                             {t('model_select_vehicle')}
                         </span>
-                        {vehicleLogos.map((vehicle) => (
-                            <button 
-                                key={vehicle.id}
-                                className={`vehicle-switcher-btn ${activeVehicle.id === vehicle.id ? 'active' : ''}`}
-                                onClick={() => setActiveVehicle(vehicle)}
-                            >
-                                <img src={vehicle.logo} alt={vehicle.name} className="logo-image" />
-                            </button>
-                        ))}
+                        <div className="vehicle-switcher-track">
+                            {vehicleLogos.map((vehicle) => (
+                                <button 
+                                    key={vehicle.id}
+                                    className={`vehicle-switcher-btn ${activeVehicle.id === vehicle.id ? 'active' : ''}`}
+                                    onClick={() => setActiveVehicle(vehicle)}
+                                >
+                                    <img src={vehicle.logo} alt={vehicle.name} className="logo-image" />
+                                </button>
+                            ))}
+                        </div>
                     </div>
                 </div>
 

@@ -10,6 +10,13 @@ export const Navigation: React.FC = () => {
     const location = useLocation();
     const { t, i18n } = useTranslation();
 
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     const isPhilosophy = location.pathname === '/philosophy';
 
     const { scrollY } = useScroll();
@@ -37,10 +44,16 @@ export const Navigation: React.FC = () => {
         { title: t('nav_contact'), path: '/contact' },
     ];
 
+    const getLangColor = (lang: string) => {
+        if (i18n.language === lang) return 'var(--color-accent)';
+        if (isPhilosophy && !isOpen) return 'rgba(255,255,255,0.6)';
+        return '#888';
+    };
+
     return (
         <>
             {/* Premium Tags for Front Page - Static Absolute */}
-            {location.pathname === '/' && (
+            {location.pathname === '/' && !isMobile && (
                 <div
                     style={{
                         position: 'absolute',
@@ -100,7 +113,7 @@ export const Navigation: React.FC = () => {
                 top: 0,
                 left: 0,
                 width: '100%',
-                padding: '2rem 5vw',
+                padding: isMobile ? '1rem 5vw' : '2rem 5vw',
                 zIndex: 100,
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -108,28 +121,35 @@ export const Navigation: React.FC = () => {
                 pointerEvents: 'none',
                 color: isPhilosophy && !isOpen ? 'white' : 'black'
             }}>
-                <div style={{ width: '24px' }} /> {/* Spacer to keep flex-between balanced */}
+                {/* Mobile Empty Spacer or Tags */}
+                <div style={{ width: isMobile ? '0' : '24px' }} /> 
                 
-                {/* Center Logo */}
-                <motion.div style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', pointerEvents: 'auto', clipPath }}>
+                {/* Center Logo - Static on mobile to avoid overlap */}
+                <motion.div style={{ 
+                    position: isMobile ? 'relative' : 'absolute', 
+                    left: isMobile ? '0' : '50%', 
+                    transform: isMobile ? 'none' : 'translateX(-50%)', 
+                    pointerEvents: 'auto', 
+                    clipPath 
+                }}>
                     <Link to="/" style={{ textDecoration: 'none' }}>
                         <Logo color={isPhilosophy && !isOpen ? 'white' : 'black'} />
                     </Link>
                 </motion.div>
 
-                <div style={{ pointerEvents: 'auto', color: isPhilosophy && !isOpen ? 'white' : 'black', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <div style={{ pointerEvents: 'auto', color: isPhilosophy && !isOpen ? 'white' : 'black', display: 'flex', alignItems: 'center', gap: isMobile ? '0.5rem' : '1rem' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                         <button 
                             onClick={() => i18n.changeLanguage('de')} 
-                            style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-main, Inter)', fontSize: '0.8rem', fontWeight: i18n.language === 'de' ? 600 : 300, color: i18n.language === 'de' ? (isPhilosophy && !isOpen ? 'white' : '#000') : (isPhilosophy && !isOpen ? 'rgba(255,255,255,0.6)' : '#888'), padding: 0 }}
+                            style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-main, Inter)', fontSize: isMobile ? '0.7rem' : '0.8rem', fontWeight: i18n.language === 'de' ? 600 : 300, color: getLangColor('de'), padding: 0 }}
                         >DE</button>
-                        <span style={{ fontSize: '0.8rem', color: isPhilosophy && !isOpen ? 'rgba(255,255,255,0.4)' : '#ccc' }}>|</span>
+                        <span style={{ fontSize: isMobile ? '0.7rem' : '0.8rem', color: isPhilosophy && !isOpen ? 'rgba(255,255,255,0.4)' : '#ccc' }}>|</span>
                         <button 
                             onClick={() => i18n.changeLanguage('en')} 
-                            style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-main, Inter)', fontSize: '0.8rem', fontWeight: i18n.language === 'en' ? 600 : 300, color: i18n.language === 'en' ? (isPhilosophy && !isOpen ? 'white' : '#000') : (isPhilosophy && !isOpen ? 'rgba(255,255,255,0.6)' : '#888'), padding: 0 }}
+                            style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'var(--font-main, Inter)', fontSize: isMobile ? '0.7rem' : '0.8rem', fontWeight: i18n.language === 'en' ? 600 : 300, color: getLangColor('en'), padding: 0 }}
                         >EN</button>
                     </div>
-                    <Hamburger toggled={isOpen} toggle={setOpen} size={24} duration={0.8} color={isPhilosophy && !isOpen ? "white" : "black"} />
+                    <Hamburger toggled={isOpen} toggle={setOpen} size={isMobile ? 20 : 24} duration={0.8} color={isPhilosophy && !isOpen ? "white" : "black"} />
                 </div>
             </header>
 
