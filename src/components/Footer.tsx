@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
     const { t } = useTranslation();
@@ -26,8 +27,8 @@ export const Footer: React.FC = () => {
 
                 <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', fontSize: '0.875rem', color: '#666' }}>
 
-                    <a href="/impressum" style={{ transition: 'color 0.2s', textTransform: 'uppercase', letterSpacing: '0.1em', textDecoration: 'none', color: 'inherit' }}>{t('footer_imprint')}</a>
-                    <a href="/datenschutz" style={{ transition: 'color 0.2s', textTransform: 'uppercase', letterSpacing: '0.1em', textDecoration: 'none', color: 'inherit' }}>{t('footer_privacy')}</a>
+                    <Link to="/impressum" style={{ transition: 'color 0.2s', textTransform: 'uppercase', letterSpacing: '0.1em', textDecoration: 'none', color: 'inherit' }}>{t('footer_imprint')}</Link>
+                    <Link to="/datenschutz" style={{ transition: 'color 0.2s', textTransform: 'uppercase', letterSpacing: '0.1em', textDecoration: 'none', color: 'inherit' }}>{t('footer_privacy')}</Link>
                 </div>
 
                 <div style={{ marginTop: '4rem', color: '#666', fontSize: '0.9rem', lineHeight: '1.6' }}>
