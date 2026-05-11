@@ -126,13 +126,13 @@ export const Navigation: React.FC = () => {
                     {!isMobile && <div style={{ width: '24px' }} />}
                     
                     {isMobile && (
-                        <motion.div style={{ pointerEvents: 'auto', clipPath }}>
-                            <Link to="/" style={{ textDecoration: 'none' }}>
+                        <motion.div style={{ position: 'relative', pointerEvents: 'auto', clipPath }}>
+                            <Link to="/" style={{ textDecoration: 'none', display: 'block' }}>
                                 <Logo color={isPhilosophy && !isOpen ? 'white' : 'black'} />
                             </Link>
                             
                             {location.pathname === '/' && (
-                                <div style={{ marginTop: '6px', display: 'flex', flexDirection: 'column', gap: '2px', opacity: 0.8 }}>
+                                <div style={{ position: 'absolute', top: '100%', left: 0, marginTop: '6px', display: 'flex', flexDirection: 'column', gap: '2px', opacity: 0.8, width: 'max-content' }}>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                                         <span style={{ fontFamily: 'var(--font-main, Inter)', fontWeight: 500, fontSize: '0.55rem', letterSpacing: '0.2em', color: isPhilosophy && !isOpen ? 'white' : '#111', textTransform: 'uppercase' }}>
                                             {t('made_in')}
