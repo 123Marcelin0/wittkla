@@ -121,21 +121,54 @@ export const Navigation: React.FC = () => {
                 pointerEvents: 'none',
                 color: isPhilosophy && !isOpen ? 'white' : 'black'
             }}>
-                {/* Mobile Empty Spacer or Tags */}
-                <div style={{ width: isMobile ? '0' : '24px' }} /> 
-                
-                {/* Center Logo - Static on mobile to avoid overlap */}
-                <motion.div style={{ 
-                    position: isMobile ? 'relative' : 'absolute', 
-                    left: isMobile ? '0' : '50%', 
-                    transform: isMobile ? 'none' : 'translateX(-50%)', 
-                    pointerEvents: 'auto', 
-                    clipPath 
-                }}>
-                    <Link to="/" style={{ textDecoration: 'none' }}>
-                        <Logo color={isPhilosophy && !isOpen ? 'white' : 'black'} />
-                    </Link>
-                </motion.div>
+                {/* Left Side: Spacer (Desktop) or Logo + Tags (Mobile) */}
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', flex: isMobile ? 1 : 'none' }}>
+                    {!isMobile && <div style={{ width: '24px' }} />}
+                    
+                    {isMobile && (
+                        <motion.div style={{ pointerEvents: 'auto', clipPath }}>
+                            <Link to="/" style={{ textDecoration: 'none' }}>
+                                <Logo color={isPhilosophy && !isOpen ? 'white' : 'black'} />
+                            </Link>
+                            
+                            {location.pathname === '/' && (
+                                <div style={{ marginTop: '6px', display: 'flex', flexDirection: 'column', gap: '2px', opacity: 0.8 }}>
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                        <span style={{ fontFamily: 'var(--font-main, Inter)', fontWeight: 500, fontSize: '0.55rem', letterSpacing: '0.2em', color: isPhilosophy && !isOpen ? 'white' : '#111', textTransform: 'uppercase' }}>
+                                            {t('made_in')}
+                                        </span>
+                                        <div style={{ display: 'flex', height: '8px', width: '12px', flexDirection: 'column', borderRadius: '1px', overflow: 'hidden' }}>
+                                            <div style={{ flex: 1, backgroundColor: '#000000' }} />
+                                            <div style={{ flex: 1, backgroundColor: '#DD0000' }} />
+                                            <div style={{ flex: 1, backgroundColor: '#FFCE00' }} />
+                                        </div>
+                                        <span style={{ fontFamily: 'var(--font-main, Inter)', fontWeight: 500, fontSize: '0.55rem', letterSpacing: '0.2em', color: isPhilosophy && !isOpen ? 'white' : '#111', textTransform: 'uppercase' }}>
+                                            {t('germany')}
+                                        </span>
+                                    </div>
+                                    <span style={{ fontFamily: 'var(--font-main, Inter)', fontWeight: 500, fontSize: '0.55rem', letterSpacing: '0.2em', color: isPhilosophy && !isOpen ? 'white' : '#111', textTransform: 'uppercase' }}>
+                                        {t('installation')}
+                                    </span>
+                                </div>
+                            )}
+                        </motion.div>
+                    )}
+                </div>
+
+                {/* Center Logo - Static Absolute (Desktop Only) */}
+                {!isMobile && (
+                    <motion.div style={{ 
+                        position: 'absolute', 
+                        left: '50%', 
+                        transform: 'translateX(-50%)', 
+                        pointerEvents: 'auto', 
+                        clipPath 
+                    }}>
+                        <Link to="/" style={{ textDecoration: 'none' }}>
+                            <Logo color={isPhilosophy && !isOpen ? 'white' : 'black'} />
+                        </Link>
+                    </motion.div>
+                )}
 
                 <div style={{ pointerEvents: 'auto', color: isPhilosophy && !isOpen ? 'white' : 'black', display: 'flex', alignItems: 'center', gap: isMobile ? '0.5rem' : '1rem' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>

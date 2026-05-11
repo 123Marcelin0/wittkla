@@ -32,9 +32,9 @@ export const Footer: React.FC = () => {
                 </div>
 
                 <div style={{ marginTop: '4rem', color: '#666', fontSize: '0.9rem', lineHeight: '1.6' }}>
-                    <p>Firma WITTKLA</p>
+                    <p>Wittkla</p>
                     <p>Wellendorfer Straße 124, 49124 Georgsmarienhütte, Germany</p>
-                    <p>Telefon: +49 5401831598 | Mobil: +49 1725966830</p>
+                    <p>Mobil: +49 1725966830</p>
                 </div>
 
                 <div style={{ marginTop: '3rem', fontSize: '12px', color: '#444', textTransform: 'uppercase', letterSpacing: '0.2em' }}>

@@ -29,7 +29,7 @@ export const Contact: React.FC = () => {
                         <div className="contact-info-block">
                             <h3 className="contact-info-title">{t('contact_hq')}</h3>
                             <p className="contact-info-text">
-                                Wittkla GmbH<br />
+                                Wittkla<br />
                                 Wellendorfer Straße 124<br />
                                 49124 Georgsmarienhütte, DE
                             </p>

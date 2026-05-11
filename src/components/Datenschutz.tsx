@@ -50,10 +50,9 @@ export const Datenschutz: React.FC = () => {
                     <p style={{ marginBottom: '1.5rem' }}>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
                     <p style={{ marginBottom: '1.5rem' }}>
                         Wittmanns Klappschlafkabinen<br/>
-                        Firma WITTKLA<br/>
+                        Wittkla<br/>
                         Wellendorfer Straße 124<br/>
                         49124 Georgsmarienhütte<br/>
-                        Telefon: +49 5401831598<br/>
                         E-Mail: info@wittkla.com
                     </p>
                     <p style={{ marginBottom: '1.5rem' }}>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z. B. Namen, E-Mail-Adressen o. Ä.) entscheidet.</p>

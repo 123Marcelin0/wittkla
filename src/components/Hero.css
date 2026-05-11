@@ -23,6 +23,13 @@
     box-shadow: 0 10px 40px rgba(0,0,0,0.1);
 }
 
+@media (max-width: 768px) {
+    .hero-presentation {
+        height: 60vh;
+        min-height: 400px;
+    }
+}
+
 .hero-bg {
     position: absolute;
     top: 0;

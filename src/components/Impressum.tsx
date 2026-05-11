@@ -23,9 +23,9 @@ export const Impressum: React.FC = () => {
                     <h2 style={{ fontSize: '1.5rem', fontWeight: 600, marginTop: '2.5rem', marginBottom: '1rem' }}>{t('imprint_contact', 'Kontakt')}:</h2>
                     <p style={{ marginBottom: '1.5rem' }}>
                         Wittmanns Klappschlafkabinen<br />
-                        Firma WITTKLA<br />
+                        Wittkla<br />
                         Wellendorfer Straße 124, Germany, 49124 Georgsmarienhütte<br />
-                        Telefon: +49 5401831598, Mobil: +49 1725966830<br />
+                        Mobil: +49 1725966830<br />
                         E-mail: info@wittkla.com<br />
                         www.wittkla.com
                     </p>
