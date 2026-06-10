@@ -24,8 +24,12 @@
 }
 
 @media (max-width: 768px) {
+    .hero-section {
+        min-height: auto;
+        padding: 100px 4vw 10vh 4vw; /* Reduced top padding to close the gap */
+    }
     .hero-presentation {
-        height: 60vh;
+        height: 65vh;
         min-height: 400px;
     }
 }
@@ -104,10 +108,9 @@
 
 .hero-headline-accent {
     display: block;
-    color: transparent;
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
-    opacity: 0.9;
-    font-weight: 300;
+    color: #ffffff;
+    opacity: 1;
+    font-weight: 600;
 }
 
 .hero-description {

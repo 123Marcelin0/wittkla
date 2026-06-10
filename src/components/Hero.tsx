@@ -21,7 +21,7 @@ export const Hero: React.FC = () => {
                 <div className="hero-bg">
                     <iframe 
                         className="hero-video"
-                        src="https://www.youtube.com/embed/izQx9iOvNY0?autoplay=1&mute=1&loop=1&playlist=izQx9iOvNY0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&end=136"
+                        src="https://www.youtube.com/embed/izQx9iOvNY0?autoplay=1&mute=1&loop=1&playlist=izQx9iOvNY0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&end=136&disablekb=1&iv_load_policy=3"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                     ></iframe>
