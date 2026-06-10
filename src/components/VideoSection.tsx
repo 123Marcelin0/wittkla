@@ -39,7 +39,7 @@ export const VideoSection: React.FC = () => {
                     <iframe
                         width="100%"
                         height="100%"
-                        src="https://www.youtube.com/embed/izQx9iOvNY0?autoplay=1&mute=1&loop=1&playlist=izQx9iOvNY0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+                        src="https://www.youtube.com/embed/izQx9iOvNY0?autoplay=1&mute=1&loop=1&playlist=izQx9iOvNY0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&start=3&disablekb=1&iv_load_policy=3"
                         title="Wittkla Video"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -52,8 +52,21 @@ export const VideoSection: React.FC = () => {
                             height: '100%',
                             objectFit: 'cover'
                         }}
-                    ></iframe>
-                    {/* Overlay to prevent interaction if desired, or just to add a tint. Keeping it clean for now. */}
+                    <motion.div
+                        initial={{ opacity: 1 }}
+                        animate={{ opacity: 0 }}
+                        transition={{ delay: 2.5, duration: 1 }}
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            backgroundColor: '#000',
+                            zIndex: 2,
+                            pointerEvents: 'none'
+                        }}
+                    />
                 </div>
             </motion.div>
         </section>

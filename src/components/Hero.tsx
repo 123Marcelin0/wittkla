@@ -21,7 +21,7 @@ export const Hero: React.FC = () => {
                 <div className="hero-bg">
                     <iframe 
                         className="hero-video"
-                        src="https://www.youtube.com/embed/izQx9iOvNY0?autoplay=1&mute=1&loop=1&playlist=izQx9iOvNY0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&end=136&disablekb=1&iv_load_policy=3"
+                        src="https://www.youtube.com/embed/izQx9iOvNY0?autoplay=1&mute=1&loop=1&playlist=izQx9iOvNY0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&end=136&disablekb=1&iv_load_policy=3&start=3"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                     ></iframe>
@@ -30,6 +30,21 @@ export const Hero: React.FC = () => {
                         animate={{ opacity: isVisible ? 1 : 0 }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
                     ></motion.div>
+                    <motion.div
+                        initial={{ opacity: 1 }}
+                        animate={{ opacity: 0 }}
+                        transition={{ delay: 2.5, duration: 1 }}
+                        style={{
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            backgroundColor: '#000',
+                            zIndex: 2,
+                            pointerEvents: 'none'
+                        }}
+                    />
                 </div>
 
             <div className="hero-container">
